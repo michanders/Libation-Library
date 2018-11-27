@@ -1,0 +1,15 @@
+<%= render 'layouts/searchform' %>
+<div class="horizontal-scroll">
+  <% if @drink["drinks"] %>
+    <% @drink["drinks"].each do |obj| %>
+      <div class="card">
+        <form action='/details'>
+            <button type="submit" title="<%=obj["strDrink"]%> Ingredients" name='details' value="<%=obj["idDrink"]%>"><img class="img" src="<%=obj["strDrinkThumb"]%>" ></button>
+        </form>
+        <h3 id='drinkname'><%= obj["strDrink"] %></h3>
+      </div>
+    <% end %>
+</div>
+<% else %>
+<h2>Libation not found</h2>
+<% end %>

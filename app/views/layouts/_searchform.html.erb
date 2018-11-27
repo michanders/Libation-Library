@@ -1,0 +1,11 @@
+<div id='searchbox'>
+	<form action='/search'>
+		<select id="typesearch" name="searchtype">
+			<option value="s" <%=@type==="s" ? selected="selected" : nil%>>Cocktail Name</option>
+			<!-- <option value="i" <%=@type==="i" ? selected="selected" : nil%>>Ingredient</option> -->
+			<option value="r" <%=@type==="r" ? selected="selected" : nil%>>Random</option>
+		</select>
+		<input type='text' name="search" autocomplete="off" placeholder=<%=@search%>>
+		<button id='btn' type="submit" title="Search"><img id="submitbtn" src="/images/login.png" width="75" height="75"></button>
+	</form>
+</div>

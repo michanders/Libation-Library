@@ -1,0 +1,26 @@
+<%= render 'layouts/searchform' %>
+
+<div class="drink">
+  <h2>Ingredients for <%= @drinks["drinks"][0]["strDrink"] %>:</h2>
+  <ul id="drinkshow">
+  <% @drinks["drinks"].each do |object| %>
+    <% i = 1 %>
+    <% object.each do |key, value| %>
+      <% if key === "strIngredient#{i.to_s}" && value.length >= 2 %>
+        <li><%= value %>
+        <% object.each do |key, value| %>
+          <% if key === "strMeasure#{i.to_s}" && value.length >= 2 %>
+           : <%= value %></li>
+          <% end %>
+        <% end %>
+        <% i += 1 %>
+      <% end %>
+    <% end %></ul>
+    <h2>Instructions:</h2>
+    <% object.each do |key, value| %>
+      <% if key === "strInstructions" %>
+        <div class="instructions"><%= value %></div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
