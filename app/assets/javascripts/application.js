@@ -13,3 +13,16 @@
 //= require jquery3
 //= require jquery_ujs
 //= require_tree .
+
+var cursor = 0;
+var KC = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+
+document.addEventListener('keydown', (e) => {
+  cursor = (e.keyCode == KC[cursor]) ? cursor + 1 : 0;
+  if (cursor == KC.length) openInNewTab("https://soundcloud.com/user-742300890");
+});
+
+function openInNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+};
